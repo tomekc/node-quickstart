@@ -1,2 +1,18 @@
 h1= title
 p Welcome to #{title} service!
+#head Hello! You can bid in #{items.length} auctions!
+#auctions
+	table.table
+		tr
+			th Item name
+			th Start price
+			th Current price
+		each item in items
+			tr
+				td= item.title
+				td= item.price+" zł"
+				td= item.current
+
+
+
+

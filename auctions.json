@@ -1,8 +1,14 @@
-{
-	"1" : {
+[
+	{
 		"title" : "Buda dla psa",
 		"price" : 50.0
-	} 
-	
-	
-}
+	},
+	{
+		"title" : "Siekiera leworęczna",
+		"price" : 25.0		
+	},
+	{
+		"title" : "Baterie do skutera",
+		"price" : 250.0
+	}
+]
