@@ -1,18 +1,20 @@
 h1= title
 p Welcome to #{title} service!
-#head Hello! You can bid in #{items.length} auctions!
+
 #auctions
 	table.table
 		tr
 			th Item name
 			th Start price
 			th Current price
+			th Bids
 		each item in items
 			tr
 				td
 					a(href="/item/"+item.id)= item.title
 				td= item.price+" zł"
-				td= item.current
+				td= item.current+" zł"
+				td= item.bids.length
 
 
 

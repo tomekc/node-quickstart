@@ -15,6 +15,8 @@ var app = module.exports = express.createServer();
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: "keyboard cat" }));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -32,7 +34,8 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
-app.get('/item/:id', routes.item)
+app.get('/item/:id', routes.item);
+app.post('/item/:id/bid', routes.bid);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
