@@ -10,33 +10,33 @@ if (flash.info)
 if (flash.error)
 	.alert.alert-error #{flash.error}
 
-.span11
-	.row
-		#info.span6
-			p Aktualna cena: 
-				span#cena
-					b #{item.current}
-				b  zł
-			p Oferty kupna: 
-				span#ofert
-					b #{item.bids.length}
-			table.table
+
+.row
+	#info.span6
+		p Aktualna cena: 
+			span#cena
+				b #{item.current}
+			b  zł
+		p Oferty kupna: 
+			span#ofert
+				b #{item.bids.length}
+		table.table
+			tr
+				th Kwota
+				th Oferent
+				th Data
+			each bid in item.bids
 				tr
-					th Kwota
-					th Oferent
-					th Data
-				each bid in item.bids
-					tr
-						td= bid.amount
-						td= bid.bidder
-						td= bid.date
-		#bidding.span4
-			form.form(action='/item/#{item.id}/bid', method='post')
-				div
-					label Podaj swoje imię
-					input.span2(name='user', type='text')
-				div
-					label Podaj kwotę
-					input.span1(name='bid', type='text')
-				div
-					input.btn.btn-success(type='Submit', value='Licytuj')
+					td= bid.amount
+					td= bid.bidder
+					td= bid.date					
+	#bidding.span4
+		form.form(action='/item/#{item.id}/bid', method='post')
+			div
+				label Podaj swoje imię
+				input.span2(name='user', type='text')
+			div
+				label Podaj kwotę
+				input.span1(name='bid', type='text')
+			div
+				input.btn.btn-success(type='Submit', value='Licytuj')
