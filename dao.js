@@ -3,6 +3,7 @@ var fs = require('fs');
 console.log('Initializing DAO');
 
 var data = require('./auctions.json');
+var emitter;
 
 function find(id) {
 	for (var j=0; j<data.length; j++) {
@@ -17,6 +18,10 @@ data.forEach(function(item) {
 	item.current = item.price;
 	item.bids = [];
 });
+
+exports.useEmitter = function(e) {
+	emitter = e;
+}
 
 exports.auctions = function() {
 	return data;
@@ -40,8 +45,8 @@ exports.placeBid = function(id,amount,bidder) {
 	}
 	item.current = amount;
 	item.bids.push( {amount:parseInt(amount), bidder:bidder, date:new Date()});
-	
-	console.log('Bids' + JSON.stringify(item.bids));
+
+	emitter.emit('bid', { id:id, amount:amt, count:item.bids.length } );
 	
 	return true;
 	
