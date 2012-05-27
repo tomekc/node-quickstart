@@ -5,3 +5,15 @@ body {
 a {
   color: #00B7FF;
 }
+
+#info {
+	margin-top: 20px;
+	
+}
+
+#bidding {
+	margin-top: 20px;
+	padding: 20px;
+	border: 1px solid #d7d7d7;
+	background-color: #ededed;
+}

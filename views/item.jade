@@ -1,10 +1,21 @@
-h1 Licytujemy #{itemid}
-form.form(action='/bid', method='post')
-	div
-		label Podaj swoje imię
-		input
-	div
-		label Podaj kwotę
-		input
-	div
-		input(type='Submit', value='Licytuj')
+h1 Licytacja przedmiontu: #{item.title}
+
+#info
+	p Aktualna cena: 
+		span#cena
+			b #{item.current}
+		b  zł
+	p Oferty kupna: 
+		span#ofert
+			b #{item.bids.length}
+
+#bidding
+	form.form(action='/bid', method='post')
+		div
+			label Podaj swoje imię
+			input
+		div
+			label Podaj kwotę
+			input
+		div
+			input.btn.btn-success(type='Submit', value='Licytuj')
