@@ -13,3 +13,8 @@ exports.index = function(req, res){
 	items: dao.auctions(),
 	})
 };
+
+
+exports.item = function(req,res) {
+	res.render('item', { 'title':'AleDrogo', 'itemid':req.params.id });
+}
