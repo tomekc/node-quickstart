@@ -9,7 +9,8 @@ p Welcome to #{title} service!
 			th Current price
 		each item in items
 			tr
-				td= item.title
+				td
+					a(href="/item/"+item.id)= item.title
 				td= item.price+" zł"
 				td= item.current
 
